@@ -1,10 +1,8 @@
 # SaudeDeQualidade
 
-NOME DOS PARTICIPANTES DO GRUPO
 
-Bruno Augusto Karen Rapini da Rocha Valquíria Vitorino de Oliveira Guilherme Hagiwara
-
-Projeto de Banco de Dados - Criar um programa baseado em um dos 17 Objetivos para o Desenvolvimento Sustentável da ONU.
+<h1>Projeto de Banco de Dados</h1>
+<h2>Criar um programa baseado em um dos 17 Objetivos para o Desenvolvimento Sustentável da ONU.</h2>
 
 Objetivo escolhido: Saúde e Bem-Estar
 
@@ -13,3 +11,10 @@ Objetivo escolhido: Saúde e Bem-Estar
 Modelagem ER
 
 <img alt="Modelagem ER do projeto" src="https://github.com/valquiriav/SaudeDeQualidade/blob/master/PROJETOSAUDE.png?raw=true">
+
+Devs:
+
+Bruno Augusto
+Karen Rapini
+Guilherme Hagiwara
+Valquíria Vitorino
