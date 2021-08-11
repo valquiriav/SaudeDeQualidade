@@ -9,7 +9,9 @@
 
 <b>Devs:<b/>
 
-Bruno Augusto
-Karen Rapini
-Guilherme Hagiwara
-Valquíria Vitorino
+<ul>
+  <li>Bruno Augusto</li>
+  <li>Karen Rapini</li>
+  <li>Guilherme Hagiwara</li>
+  <li>Valquíria Vitorino</li>
+</ul>
