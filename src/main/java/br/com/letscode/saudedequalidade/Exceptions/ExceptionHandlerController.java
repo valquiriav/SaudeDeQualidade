@@ -26,4 +26,13 @@ public class ExceptionHandlerController {
         );
     }
 
+    @ExceptionHandler(ProfissionalNaoDisponivelException.class)
+    public ResponseEntity<ExceptionResponse> handleProfissionalNaoDisponivelException(ProfissionalNaoDisponivelException ex){
+        log.info(ex.getMessage());
+        return new ResponseEntity<>(
+                new ExceptionResponse(ex.getMessage(), "Não tem nenhum profissional disponivel nesse dia da semana."),
+                HttpStatus.BAD_REQUEST
+        );
+    }
+
 }

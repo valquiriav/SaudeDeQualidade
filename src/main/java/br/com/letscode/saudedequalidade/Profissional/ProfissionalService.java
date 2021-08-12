@@ -32,4 +32,8 @@ public class ProfissionalService {
     public Profissional findProfissionalByEspecialidade(String especialidade){
         return repository.findByEspecialidade(especialidade).orElseThrow(EspecialidadeProfissionalNaoExistente::new);
     }
+
+    public Profissional findProfissionalByDisponibilidade(String disponibilidade) {
+        return repository.findByDiaDisponivel(disponibilidade).orElseThrow();
+    }
 }

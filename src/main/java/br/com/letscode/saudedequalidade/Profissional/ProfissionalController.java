@@ -52,7 +52,7 @@ public class ProfissionalController {
         return service.saveNewProfissional(novoProfissional);
     }
 
-    @ApiOperation(value="Buscar um profissional pela sua especialidade por meio do parâmetro.")
+    @ApiOperation(value="Buscar um profissional pela sua especialidade por meio de parâmetro.")
     @ApiResponses(value = {
             @ApiResponse(code=200, message = "Profissionais encontrados com sucesso.", response = Profissional.class),
             @ApiResponse(code=400, message = "Não existe nenhum profissional com esta especialidade.", response = ExceptionResponse.class)
@@ -60,5 +60,17 @@ public class ProfissionalController {
     @GetMapping("/buscarEspecialidade")
     public Profissional findProfissionalByEspecialidade(@RequestParam String especialidade){
         return service.findProfissionalByEspecialidade(especialidade);
+    }
+
+    @ApiOperation(value="Buscar um profissional pela sua disponibilidade por meio de parâmetro. A busca é feita por"+
+    " dias da semana.", response = Profissional.class)
+    @ApiResponses(value = {
+            @ApiResponse(code=200, message="Profissionais encontrados com sucesso.", response = Profissional.class),
+            @ApiResponse(code=400, message = "Não existe nenhum profissional disponivel nesse dia"+
+            " ou você digitou o dia da semana de forma errada.", response = ExceptionResponse.class)
+    })
+    @GetMapping("/buscarDisponibilidade")
+    public Profissional findProfissionalByDisponibilidade(@RequestParam String disponibilidade){
+        return service.findProfissionalByDisponibilidade(disponibilidade);
     }
 }
