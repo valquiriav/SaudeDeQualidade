@@ -12,7 +12,16 @@ public class ExceptionHandlerController {
     public ResponseEntity<ExceptionResponse> handleProfissionalNaoExistenteException(ProfissionalNaoExistenteException ex){
         log.info(ex.getMessage());
         return new ResponseEntity<>(
-            new ExceptionResponse(ex.getMessage(), "Não existe nenhum professor com este ID."),
+            new ExceptionResponse(ex.getMessage(), "Não existe nenhum profissional com este ID."),
+                HttpStatus.NOT_FOUND
+        );
+    }
+
+    @ExceptionHandler(PacienteNaoExistenteException.class)
+    public ResponseEntity<ExceptionResponse> handlePacienteNaoExistenteException(PacienteNaoExistenteException ex){
+        log.info(ex.getMessage());
+        return new ResponseEntity<>(
+                new ExceptionResponse(ex.getMessage(), "Não existe nenhum paciente com este ID."),
                 HttpStatus.NOT_FOUND
         );
     }
