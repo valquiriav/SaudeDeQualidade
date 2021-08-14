@@ -13,7 +13,7 @@ public class ExceptionHandlerController {
         log.info(ex.getMessage());
         return new ResponseEntity<>(
             new ExceptionResponse(ex.getMessage(), "Não existe nenhum professor com este ID."),
-                HttpStatus.BAD_REQUEST
+                HttpStatus.NOT_FOUND
         );
     }
 
@@ -22,7 +22,7 @@ public class ExceptionHandlerController {
         log.info(ex.getMessage());
         return new ResponseEntity<>(
                 new ExceptionResponse(ex.getMessage(),"Não existe nenhum médico com esta especialidade."),
-                HttpStatus.BAD_REQUEST
+                HttpStatus.NOT_FOUND
         );
     }
 
@@ -31,7 +31,7 @@ public class ExceptionHandlerController {
         log.info(ex.getMessage());
         return new ResponseEntity<>(
                 new ExceptionResponse(ex.getMessage(), "Não tem nenhum profissional disponivel nesse dia da semana."),
-                HttpStatus.BAD_REQUEST
+                HttpStatus.NOT_FOUND
         );
     }
 

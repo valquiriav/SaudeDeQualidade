@@ -6,13 +6,13 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -38,39 +38,39 @@ public class ProfissionalController {
     @ApiOperation(value="Buscar um profissional pelo ID.", response=Profissional.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Profissional encontrado com sucesso.", response = Profissional.class),
-            @ApiResponse(code = 400, message = "Este ID é invalido.", response = ExceptionResponse.class)
+            @ApiResponse(code = 404, message = "Este ID é invalido.", response = ExceptionResponse.class)
     })
     @GetMapping("/{id}")
-    public Profissional getProfissionalByID(@PathVariable Long id){
-        return service.getProfissionalByID(id);
+    public ResponseEntity<Profissional> getProfissionalByID(@PathVariable Long id){
+        return ResponseEntity.ok().body(service.getProfissionalByID(id));
     }
 
     @ApiOperation(value="Criar um novo profissional.", response = Profissional.class)
     @ApiResponse(code=201, response= Profissional.class, message = "Profissional criado com sucesso.")
     @PostMapping("/createProfissional")
-    public Profissional createNovoProfissional(@RequestBody Profissional novoProfissional){
-        return service.saveNewProfissional(novoProfissional);
+    public ResponseEntity<Profissional> createNovoProfissional(@RequestBody Profissional novoProfissional){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveNewProfissional(novoProfissional));
     }
 
     @ApiOperation(value="Buscar um profissional pela sua especialidade por meio de parâmetro.")
     @ApiResponses(value = {
             @ApiResponse(code=200, message = "Profissionais encontrados com sucesso.", response = Profissional.class),
-            @ApiResponse(code=400, message = "Não existe nenhum profissional com esta especialidade.", response = ExceptionResponse.class)
+            @ApiResponse(code=404, message = "Não existe nenhum profissional com esta especialidade.", response = ExceptionResponse.class)
     })
-    @GetMapping("/buscarEspecialidade")
-    public Profissional findProfissionalByEspecialidade(@RequestParam String especialidade){
-        return service.findProfissionalByEspecialidade(especialidade);
+    @GetMapping("/buscarPorEspecialista/{especialidade}")
+    public ResponseEntity<List<Profissional>> findProfissionalByEspecialidade(@PathVariable String especialidade){
+        return ResponseEntity.ok().body(service.findProfissionalByEspecialidade(especialidade));
     }
 
     @ApiOperation(value="Buscar um profissional pela sua disponibilidade por meio de parâmetro. A busca é feita por"+
     " dias da semana.", response = Profissional.class)
     @ApiResponses(value = {
             @ApiResponse(code=200, message="Profissionais encontrados com sucesso.", response = Profissional.class),
-            @ApiResponse(code=400, message = "Não existe nenhum profissional disponivel nesse dia"+
+            @ApiResponse(code=404, message = "Não existe nenhum profissional disponivel nesse dia"+
             " ou você digitou o dia da semana de forma errada.", response = ExceptionResponse.class)
     })
-    @GetMapping("/buscarDisponibilidade")
-    public Profissional findProfissionalByDisponibilidade(@RequestParam String disponibilidade){
-        return service.findProfissionalByDisponibilidade(disponibilidade);
+    @GetMapping("/buscarPorDisponibilidade/{disponibilidade}")
+    public ResponseEntity<List<Profissional>> findProfissionalByDisponibilidade(@PathVariable String disponibilidade){
+        return ResponseEntity.status(200).body(service.findProfissionalByDisponibilidade(disponibilidade));
     }
 }

@@ -29,11 +29,11 @@ public class ProfissionalService {
         return repository.save(novoProfissional);
     }
 
-    public Profissional findProfissionalByEspecialidade(String especialidade){
-        return repository.findByEspecialidade(especialidade).orElseThrow(EspecialidadeProfissionalNaoExistente::new);
+    public List<Profissional> findProfissionalByEspecialidade(String especialidade){
+        return repository.findByEspecialidade(especialidade);
     }
 
-    public Profissional findProfissionalByDisponibilidade(String disponibilidade) {
-        return repository.findByDiaDisponivel(disponibilidade).orElseThrow();
+    public List<Profissional> findProfissionalByDisponibilidade(String disponibilidade) {
+        return repository.findByDiaDisponivel(disponibilidade);
     }
 }
