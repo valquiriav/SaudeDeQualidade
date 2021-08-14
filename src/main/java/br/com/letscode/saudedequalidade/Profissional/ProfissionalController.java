@@ -52,7 +52,7 @@ public class ProfissionalController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveNewProfissional(novoProfissional));
     }
 
-    @ApiOperation(value="Buscar um profissional pela sua especialidade por meio de parâmetro.")
+    @ApiOperation(value="Buscar um profissional pela sua especialidade.")
     @ApiResponses(value = {
             @ApiResponse(code=200, message = "Profissionais encontrados com sucesso.", response = Profissional.class),
             @ApiResponse(code=404, message = "Não existe nenhum profissional com esta especialidade.", response = ExceptionResponse.class)
@@ -62,7 +62,7 @@ public class ProfissionalController {
         return ResponseEntity.ok().body(service.findProfissionalByEspecialidade(especialidade));
     }
 
-    @ApiOperation(value="Buscar um profissional pela sua disponibilidade por meio de parâmetro. A busca é feita por"+
+    @ApiOperation(value="Buscar um profissional pela sua disponibilidade. A busca é feita por"+
     " dias da semana.", response = Profissional.class)
     @ApiResponses(value = {
             @ApiResponse(code=200, message="Profissionais encontrados com sucesso.", response = Profissional.class),
