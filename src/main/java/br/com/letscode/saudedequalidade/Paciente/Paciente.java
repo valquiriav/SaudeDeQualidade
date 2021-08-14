@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Getter
 @Setter
@@ -38,7 +39,6 @@ public class Paciente {
     @Column(name="data_nascimento",nullable = false)
     private LocalDate data_nascimento;
 
-    //TODO colcocar como atributo derivado
     @Column(name="idade", nullable = false)
-    private int idade;
+    private Period idade =  Period.between(data_nascimento, LocalDate.now());
 }
