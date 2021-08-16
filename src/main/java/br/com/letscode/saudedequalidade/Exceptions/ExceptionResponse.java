@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class ExceptionResponse {
 
-    private LocalDateTime horaOcorrencia = LocalDateTime.now();
+    private final LocalDateTime horaOcorrencia = LocalDateTime.now();
     private String mensagemExcessão;
     private String detalhes;
 

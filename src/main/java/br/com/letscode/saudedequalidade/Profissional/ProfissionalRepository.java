@@ -14,4 +14,6 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Long
     List<Profissional> findByEspecialidade(String especialidade);
 
     List<Profissional> findByDiaDisponivel(String diaDisponivel);
+
+    List<Profissional> findProfissionalByRegiao(String regiao);
 }
