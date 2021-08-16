@@ -35,4 +35,14 @@ public class ExceptionHandlerController {
         );
     }
 
+    @ExceptionHandler(RegiaoProfissionalNaoEncontrado.class)
+    public ResponseEntity<ExceptionResponse> handleRegiaoProfissionalNaoEncontrado(RegiaoProfissionalNaoEncontrado ex){
+        log.info(ex.getMessage());
+        return new ResponseEntity<>(
+                new ExceptionResponse(ex.getMessage(),"Não existe nenhum profissional atuando nesta região."),
+                HttpStatus.BAD_REQUEST
+        );
+    }
+
+
 }

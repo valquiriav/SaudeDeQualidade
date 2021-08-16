@@ -2,9 +2,6 @@ package br.com.letscode.saudedequalidade.ProfissionalTests;
 
 import br.com.letscode.saudedequalidade.Profissional.Profissional;
 import br.com.letscode.saudedequalidade.Profissional.ProfissionalRepository;
-import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +11,33 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @DataJpaTest
 @RunWith(SpringRunner.class)
-public class ProfissionalDBTests {
+public class ProfissionalJPATests {
 
     @Autowired
     private ProfissionalRepository repository;
 
-    public ProfissionalDBTests(){
+    public ProfissionalJPATests(){
 
     }
 
     @Test
     void findAll(){
-        Profissional profissional = new Profissional(12324525L,"bruno","augusto","ortopedista", "Terça-Feira","sp");
+        Profissional profissional = new Profissional(12324525L,"bruno","augusto",
+                "ortopedista", "Terça-Feira","sp");
         repository.save(profissional);
         List<Profissional> profissionalList = repository.findAll();
         assertFalse(profissionalList.isEmpty());
+    }
+
+    @Test
+    void testProfissionalListEmpty(){
+
+        List<Profissional> profissionalList = repository.findAll();
+        assertTrue(profissionalList.isEmpty());
     }
 
     @Test

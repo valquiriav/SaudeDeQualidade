@@ -31,7 +31,7 @@ public class ProfissionalController {
     @ApiOperation(value="Listar todos os profissionais do banco de dados.", response=Profissional.class)
     @ApiResponse(code=200, message="Profissionais listados com sucesso.", response=Profissional.class)
     @GetMapping("/listarProfissionais")
-    public List<Profissional> getProfissionais(){
+    public List<ProfissionalDTO> getProfissionais(){
         return service.getProfissionais();
     }
 
@@ -41,7 +41,8 @@ public class ProfissionalController {
             @ApiResponse(code = 404, message = "Este ID é invalido.", response = ExceptionResponse.class)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<Profissional> getProfissionalByID(@PathVariable Long id){
+    public ResponseEntity<ProfissionalDTO> getProfissionalByID(@PathVariable Long id){
+
         return ResponseEntity.ok().body(service.getProfissionalByID(id));
     }
 
@@ -58,7 +59,7 @@ public class ProfissionalController {
             @ApiResponse(code=404, message = "Não existe nenhum profissional com esta especialidade.", response = ExceptionResponse.class)
     })
     @GetMapping("/buscarPorEspecialista/{especialidade}")
-    public ResponseEntity<List<Profissional>> findProfissionalByEspecialidade(@PathVariable String especialidade){
+    public ResponseEntity<List<ProfissionalDTO>> findProfissionalByEspecialidade(@PathVariable String especialidade){
         return ResponseEntity.ok().body(service.findProfissionalByEspecialidade(especialidade));
     }
 
@@ -70,7 +71,18 @@ public class ProfissionalController {
             " ou você digitou o dia da semana de forma errada.", response = ExceptionResponse.class)
     })
     @GetMapping("/buscarPorDisponibilidade/{disponibilidade}")
-    public ResponseEntity<List<Profissional>> findProfissionalByDisponibilidade(@PathVariable String disponibilidade){
+    public ResponseEntity<List<ProfissionalDTO>> findProfissionalByDisponibilidade(@PathVariable String disponibilidade){
         return ResponseEntity.status(200).body(service.findProfissionalByDisponibilidade(disponibilidade));
+    }
+
+    @ApiOperation(value="Buscar um profissional pela região onde atua.")
+    @ApiResponses(value={
+            @ApiResponse(code=200,message="Profissionais encontrados com sucesso.",response = Profissional.class),
+            @ApiResponse(code=404,message="Não existem profissionais atuando nesta região."
+                    , response = ExceptionResponse.class)
+    })
+    @GetMapping("/buscarPorRegião/{regiao}")
+    public ResponseEntity<List<ProfissionalDTO>> findProfissionalByRegiao(@PathVariable String regiao){
+        return ResponseEntity.status(200).body(service.findProfissionalByRegiao(regiao));
     }
 }
