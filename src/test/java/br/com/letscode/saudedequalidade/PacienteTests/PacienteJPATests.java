@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class PacienteJPATests {
     @Test
     void findAll(){
         Paciente paciente = new Paciente(321321L,"aline","pereira",
-                "São Paulo", "");
+                "São Paulo", LocalDate.parse("1999-08-16"));
         repository.save(paciente);
         List<Paciente> pacienteList = repository.findAll();
         assertFalse(pacienteList.isEmpty());
@@ -46,7 +47,7 @@ public class PacienteJPATests {
     @Test
     void savePaciente(){
         Paciente paciente = new Paciente(321321L,"aline","pereira",
-                "São Paulo", "");
+                "São Paulo", LocalDate.parse("1999-08-16"));
         repository.save(paciente);
         assertFalse(repository.findAll().isEmpty());
     }
