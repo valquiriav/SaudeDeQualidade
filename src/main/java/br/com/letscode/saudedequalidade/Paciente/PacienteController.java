@@ -43,11 +43,11 @@ public class PacienteController {
             @ApiResponse(code = 404, message = "Este ID é inválido.", response = ExceptionResponse.class)
     })
     @GetMapping("/id")
-    public ResponseEntity<Paciente> getPacienteByID(@PathVariable Long id) {
-        return ResponseEntity.ok().body(service.getPacienteByID(id));
+    public ResponseEntity<Paciente> getPacienteByID(@PathVariable Long aLong) {
+        return ResponseEntity.ok().body(service.getPacienteByID(aLong));
     }
 
-    @ApiOperation(value = "Criar um novo profissional.", response = Paciente.class)
+    @ApiOperation(value = "Criar um novo paciente.", response = Paciente.class)
     @ApiResponse(code = 201, response = Paciente.class, message = "Paciente criado com sucesso.")
     @PostMapping("/createPaciente")
     public ResponseEntity<Paciente> createNovoPaciente(@RequestBody Paciente novoPaciente) {
