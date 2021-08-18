@@ -13,19 +13,19 @@ public class PacienteService {
     private PacienteRepository repository;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository){
+    public PacienteService(PacienteRepository pacienteRepository) {
         repository = pacienteRepository;
     }
 
-    public List<Paciente> getPacientes(){
+    public List<Paciente> getPacientes() {
         return repository.findAll();
     }
 
-    public Paciente getPacienteByID(Long id){
+    public Paciente getPacienteByID(Long id) {
         return repository.findByID(id).orElseThrow(PacienteNaoExistenteException::new);
     }
 
-    public Paciente saveNewPaciente(Paciente novoPaciente){
+    public Paciente saveNewPaciente(Paciente novoPaciente) {
         return repository.save(novoPaciente);
     }
 }

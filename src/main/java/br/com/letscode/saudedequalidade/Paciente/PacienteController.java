@@ -1,7 +1,10 @@
 package br.com.letscode.saudedequalidade.Paciente;
 
-import br.com.letscode.saudedequalidade.Paciente.Paciente;
-import br.com.letscode.saudedequalidade.Paciente.PacienteController;
+import br.com.letscode.saudedequalidade.Exceptions.ExceptionResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,22 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(value="Operações relacionadas com os Pacientes.")
+@Api(value = "Operações relacionadas com os Pacientes.")
 @RestController
 @RequestMapping("/paciente")
 
 public class PacienteController {
 
     private PacienteService service;
+
     @Autowired
-    public PacienteController(PacienteService pacienteService){
+    public PacienteController(PacienteService pacienteService) {
         service = pacienteService;
     }
 
-    @ApiOperation(value = "Listar todos os pacientes do banco de dados.", responde = Paciente.class)
+    @ApiOperation(value = "Listar todos os pacientes do banco de dados.", response = Paciente.class)
     @ApiResponse(code = 200, message = "Pacientes listados com sucesso.", response = Paciente.class)
     @GetMapping("/listarPacientes")
-    public List<Paciente> getPacientes(){
+    public List<Paciente> getPacientes() {
         return service.getPacientes();
     }
 
@@ -39,14 +43,14 @@ public class PacienteController {
             @ApiResponse(code = 404, message = "Este ID é inválido.", response = ExceptionResponse.class)
     })
     @GetMapping("/id")
-    public ResponseEntity<Paciente> getPacienteByID(@PathVariable Long id){
-        return ResponseEntity.ok().body(service.getProfessionalByID(id));
+    public ResponseEntity<Paciente> getPacienteByID(@PathVariable Long id) {
+        return ResponseEntity.ok().body(service.getPacienteByID(id));
     }
 
     @ApiOperation(value = "Criar um novo profissional.", response = Paciente.class)
     @ApiResponse(code = 201, response = Paciente.class, message = "Paciente criado com sucesso.")
     @PostMapping("/createPaciente")
-    public ResponseEntity<Paciente> createNovoPaciente(@RequestBody Paciente novoPaciente){
+    public ResponseEntity<Paciente> createNovoPaciente(@RequestBody Paciente novoPaciente) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveNewPaciente(novoPaciente));
     }
 }
