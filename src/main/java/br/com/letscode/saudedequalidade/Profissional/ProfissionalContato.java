@@ -27,11 +27,12 @@ public class ProfissionalContato {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @Column(name="numero_telefone",nullable = false)
     private Integer numeroTelefone;
 
     @ManyToOne
-    @JoinColumn(name="identificador_profissional", referencedColumnName = "identificador_profissional" ,nullable = false)
+    @JoinColumn(name = "identificador_profissional", referencedColumnName = "identificador_profissional", nullable = false)
     private Profissional idProfissional;
 
 
