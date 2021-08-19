@@ -13,8 +13,8 @@ public class PacienteService {
     private PacienteRepository repository;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository) {
-        repository = pacienteRepository;
+    public PacienteService(PacienteRepository repository) {
+        repository = repository;
     }
 
     public List<Paciente> getPacientes() {
