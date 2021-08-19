@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -36,17 +37,13 @@ public class Paciente {
     private String regiao;
 
     @Column(name = "data_nascimento", nullable = false)
-    private LocalDate data_nascimento;
+    private Date data_nascimento;
 
-    @Column(name = "idade", nullable = false)
-    private Period idade;
-
-    public Paciente(Long id, String nome, String sobrenome, String regiao, LocalDate data_nascimento) {
+    public Paciente(Long id, String nome, String sobrenome, String regiao, Date data_nascimento) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.regiao = regiao;
         this.data_nascimento = data_nascimento;
-        this.idade = Period.between(data_nascimento, LocalDate.now());
     }
 }

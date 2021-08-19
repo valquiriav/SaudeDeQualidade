@@ -21,6 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/paciente")
 
+
+
 public class PacienteController {
 
     private PacienteService service;
