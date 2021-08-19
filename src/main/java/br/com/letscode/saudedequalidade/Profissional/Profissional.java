@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,11 +18,11 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name="profissional")
-@Table(name="profissionall")
+@Table(name="profissional")
 public class Profissional {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="identificador_profissional",nullable = false)
     private Long id;
 
@@ -39,4 +40,5 @@ public class Profissional {
 
     @Column(name="regiao",nullable = false)
     private String regiao;
+
 }

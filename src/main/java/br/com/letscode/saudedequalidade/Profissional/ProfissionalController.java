@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.List;
+
 
 @Api(value="Operações relacionadas com os Médicos (Profissionais).")
 @RestController
@@ -32,6 +34,7 @@ public class ProfissionalController {
     @ApiResponse(code=200, message="Profissionais listados com sucesso.", response=Profissional.class)
     @GetMapping("/listarProfissionais")
     public List<ProfissionalDTO> getProfissionais(){
+
         return service.getProfissionais();
     }
 
@@ -85,4 +88,6 @@ public class ProfissionalController {
     public ResponseEntity<List<ProfissionalDTO>> findProfissionalByRegiao(@PathVariable String regiao){
         return ResponseEntity.status(200).body(service.findProfissionalByRegiao(regiao));
     }
+
+
 }
