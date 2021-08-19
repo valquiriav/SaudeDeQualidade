@@ -55,4 +55,6 @@ public class ProfissionalService {
         }
         throw new RegiaoProfissionalNaoEncontrado();
     }
+
+
 }

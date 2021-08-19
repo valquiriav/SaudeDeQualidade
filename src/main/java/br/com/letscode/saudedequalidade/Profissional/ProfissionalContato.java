@@ -1,6 +1,7 @@
 package br.com.letscode.saudedequalidade.Profissional;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name="contato_profissional")
 @Table(name="contato_profissional")
 public class ProfissionalContato {
@@ -26,9 +28,15 @@ public class ProfissionalContato {
     private Long id;
 
     @Column(name="numero_telefone",nullable = false)
-    private int numeroTelefone;
+    private Integer numeroTelefone;
 
     @ManyToOne
     @JoinColumn(name="identificador_profissional", referencedColumnName = "identificador_profissional" ,nullable = false)
     private Profissional idProfissional;
+
+
+    public ProfissionalContato(Integer numero, Profissional id){
+        numeroTelefone = numero;
+        idProfissional = id;
+    }
 }
