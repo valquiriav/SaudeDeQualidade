@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/profissional")
 public class ProfissionalController {
 
-    private ProfissionalService service;
+    private final ProfissionalService service;
     @Autowired
     public ProfissionalController(ProfissionalService profissionalService){
         service = profissionalService;
@@ -44,7 +44,7 @@ public class ProfissionalController {
             @ApiResponse(code = 404, message = "Este ID é invalido.", response = ExceptionResponse.class)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<ProfissionalDTO> getProfissionalByID(@PathVariable Long id){
+    public ResponseEntity<Profissional> getProfissionalByID(@PathVariable Long id){
 
         return ResponseEntity.ok().body(service.getProfissionalByID(id));
     }
