@@ -34,7 +34,7 @@ public class ConsultaService {
     public Consulta saveNewConsulta(IDs novaConsulta) {
         Consulta consulta = new Consulta();
         consulta.setIdPaciente(pacienteService.getPacienteByID(novaConsulta.getIdPaciente()));
-
+        consulta.setIdProfissional(profissionalService.getProfissionalByID(novaConsulta.getIdProfissional()));
         return repository.save(consulta);
     }
 
