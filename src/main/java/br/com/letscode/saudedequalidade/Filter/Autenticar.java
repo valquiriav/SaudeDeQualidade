@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class Autenticar extends OncePerRequestFilter {
 
-    private TokenService tokenService;
+    private final TokenService tokenService;
     @Autowired
     public Autenticar(TokenService service){
         tokenService=service;

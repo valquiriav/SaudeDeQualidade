@@ -32,9 +32,9 @@ public class SecurityConfigs extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .antMatchers("/profissional/*").hasAuthority("PACIENTE")
-                .antMatchers("/consulta/*").hasAuthority("PROFISSIONAL")
-                .antMatchers("/paciente/*").hasAuthority("PACIENTE")
+                .antMatchers("/profissional/*").permitAll()//.hasAuthority("PACIENTE")
+                .antMatchers("/consulta/*").permitAll()//.hasAuthority("PROFISSIONAL")
+                .antMatchers("/paciente/*").permitAll()//.hasAuthority("PACIENTE")
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers("/perfis").permitAll()
                 .antMatchers("/users").permitAll()

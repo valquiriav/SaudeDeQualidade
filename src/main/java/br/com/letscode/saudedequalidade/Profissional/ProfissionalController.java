@@ -34,7 +34,6 @@ public class ProfissionalController {
     @ApiResponse(code=200, message="Profissionais listados com sucesso.", response=Profissional.class)
     @GetMapping("/listarProfissionais")
     public List<ProfissionalDTO> getProfissionais(){
-
         return service.getProfissionais();
     }
 
