@@ -31,10 +31,10 @@ public class ConsultaService {
         return repository.findById(id).orElseThrow(ConsultaNaoExiste::new);
     }
 
-    public Consulta saveNewConsulta(IDs novaConsulta) {
+    public Consulta saveNewConsulta(IDs id) {
         Consulta consulta = new Consulta();
-        consulta.setIdPaciente(pacienteService.getPacienteByID(novaConsulta.getIdPaciente()));
-        consulta.setIdProfissional(profissionalService.getProfissionalByID(novaConsulta.getIdProfissional()));
+        consulta.setIdPaciente(pacienteService.getPacienteByID(Long.valueOf(id.getIdPaciente())));
+        consulta.setIdProfissional(profissionalService.getProfissionalByID(Long.valueOf(id.getIdProfissional())));
         return repository.save(consulta);
     }
 

@@ -1,13 +1,14 @@
 package br.com.letscode.saudedequalidade.Consulta;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@AllArgsConstructor
 public class IDs {
-    private Long IdProfissional;
-    private Long IdPaciente;
+    private Integer IdProfissional;
+    private Integer IdPaciente;
 }

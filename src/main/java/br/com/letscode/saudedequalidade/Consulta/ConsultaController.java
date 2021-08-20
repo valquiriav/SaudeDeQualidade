@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Api(value="Operações relacionadas com as consultas.")
@@ -71,8 +73,8 @@ public class ConsultaController {
     @ApiOperation(value="Criar uma nova Consulta.", response = Consulta.class)
     @ApiResponse(code=201, response= Consulta.class, message = "Consulta criada com sucesso.")
     @PostMapping("/createConsulta")
-    public ResponseEntity<Consulta> saveNewConsulta(@RequestBody IDs ids){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveNewConsulta(ids));
+    public ResponseEntity<Consulta> saveNewConsulta(@RequestBody IDs id){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveNewConsulta(id));
     }
 
     @ApiOperation(value="Deleter consulta por id.")

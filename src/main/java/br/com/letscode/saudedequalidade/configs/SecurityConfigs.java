@@ -33,6 +33,10 @@ public class SecurityConfigs extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/cursos").permitAll()
+                .antMatchers("/paciente/*").permitAll()
+                .antMatchers("/profissional/*").permitAll()
+                .antMatchers("/consulta/*").permitAll()
+                .antMatchers("/contato/*").permitAll()
                 .antMatchers("/users").hasAnyAuthority("PROFISSIONAL", "ADMIN", "PACIENTE")
                 .antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/cursos/*").permitAll()
