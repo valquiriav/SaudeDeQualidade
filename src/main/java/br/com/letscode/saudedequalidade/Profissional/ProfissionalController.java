@@ -44,7 +44,7 @@ public class ProfissionalController {
             @ApiResponse(code = 404, message = "Este ID é invalido.", response = ExceptionResponse.class)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<ProfissionalDTO> getProfissionalByID(@PathVariable Long id){
+    public ResponseEntity<Profissional> getProfissionalByID(@PathVariable Long id){
 
         return ResponseEntity.ok().body(service.getProfissionalByID(id));
     }

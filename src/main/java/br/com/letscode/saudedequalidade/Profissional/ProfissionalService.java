@@ -24,8 +24,8 @@ public class ProfissionalService {
         return ProfissionalDTO.convertToList(repository.findAll());
     }
 
-    public ProfissionalDTO getProfissionalByID(Long id){
-        return ProfissionalDTO.of(repository.findById(id).orElseThrow(ProfissionalNaoExistenteException::new));
+    public Profissional getProfissionalByID(Long id){
+        return repository.findById(id).orElseThrow(ProfissionalNaoExistenteException::new);
     }
 
     public Profissional saveNewProfissional(Profissional novoProfissional) {
