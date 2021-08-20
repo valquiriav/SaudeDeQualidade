@@ -19,9 +19,9 @@ import org.springframework.security.core.AuthenticationException;
 @RequestMapping("/login")
 public class LoginController {
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    private TokenService tokenService;
+    private final TokenService tokenService;
 
     @Autowired
     public LoginController(AuthenticationManager manager, TokenService service){

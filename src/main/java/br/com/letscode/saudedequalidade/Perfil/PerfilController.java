@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/perfis")
 public class PerfilController {
 
-    private PerfilRepository perfilRepository;
+    private final PerfilRepository perfilRepository;
 
     @Autowired
     public PerfilController(PerfilRepository repository){
