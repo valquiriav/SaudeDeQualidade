@@ -1,6 +1,6 @@
 package br.com.letscode.saudedequalidade.Paciente;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,15 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.Period;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity(name = "paciente")
 @Table(name = "paciente")
-
 public class Paciente {
 
     @Id

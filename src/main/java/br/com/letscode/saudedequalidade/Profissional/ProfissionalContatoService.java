@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 @Service
 public class ProfissionalContatoService {
 
-    private ProfissionalContatoRepository repository;
+    private final ProfissionalContatoRepository repository;
 
     @Autowired
     public ProfissionalContatoService(ProfissionalContatoRepository prepository){

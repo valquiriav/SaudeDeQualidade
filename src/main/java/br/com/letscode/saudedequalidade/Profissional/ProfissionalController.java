@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/profissional")
 public class ProfissionalController {
 
-    private ProfissionalService service;
+    private final ProfissionalService service;
     @Autowired
     public ProfissionalController(ProfissionalService profissionalService){
         service = profissionalService;
