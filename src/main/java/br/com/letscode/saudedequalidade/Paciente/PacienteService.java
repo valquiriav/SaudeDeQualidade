@@ -19,7 +19,7 @@ public class PacienteService {
     }
 
     public Paciente getPacienteByID(Long id) {
-        return repository.findbyId(id).orElseThrow(PacienteNaoExistenteException::new);
+        return repository.findById(id).orElseThrow(PacienteNaoExistenteException::new);
     }
 
     public Paciente saveNewPaciente(Paciente novoPaciente) {
