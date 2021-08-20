@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@NoRepositoryBean
 public interface PacienteRepository extends JpaRepository<Paciente, Long> {
-    Optional<Paciente> findbyId(Long aLong);
+
 }
