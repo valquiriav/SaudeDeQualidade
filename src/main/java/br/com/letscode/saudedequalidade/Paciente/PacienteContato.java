@@ -19,7 +19,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity(name = "contato_paciente")
 @Table(name = "contato_paciente")
-
 public class PacienteContato {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

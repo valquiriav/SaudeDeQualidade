@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class ProfissionalService {
 
-    private ProfissionalRepository repository;
+    private final ProfissionalRepository repository;
 
     @Autowired
     public ProfissionalService(ProfissionalRepository profissionalRepository){

@@ -20,17 +20,12 @@ import java.util.List;
 @Api(value = "Operações relacionadas com os Pacientes.")
 @RestController
 @RequestMapping("/paciente")
-
-
-
 public class PacienteController {
 
+    @Autowired
     private PacienteService service;
 
-    @Autowired
-    public PacienteController(PacienteService pacienteService) {
-        service = pacienteService;
-    }
+
 
     @ApiOperation(value = "Listar todos os pacientes do banco de dados.", response = Paciente.class)
     @ApiResponse(code = 200, message = "Pacientes listados com sucesso.", response = Paciente.class)

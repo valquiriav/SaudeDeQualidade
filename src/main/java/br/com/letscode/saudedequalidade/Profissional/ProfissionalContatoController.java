@@ -21,8 +21,8 @@ import java.util.List;
 @RequestMapping("/contato")
 public class ProfissionalContatoController {
 
-    private ProfissionalRepository repository;
-    private ProfissionalContatoService service;
+    private final ProfissionalRepository repository;
+    private final ProfissionalContatoService service;
 
     @Autowired
     public ProfissionalContatoController(ProfissionalContatoService pservice, ProfissionalRepository profissionalRepository) {

@@ -2,7 +2,6 @@ package br.com.letscode.saudedequalidade.ProfissionalTests;
 
 import br.com.letscode.saudedequalidade.Profissional.Profissional;
 import br.com.letscode.saudedequalidade.Profissional.ProfissionalRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
