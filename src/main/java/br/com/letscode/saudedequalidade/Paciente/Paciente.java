@@ -1,6 +1,7 @@
 package br.com.letscode.saudedequalidade.Paciente;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "paciente")
 @Table(name = "paciente")
 public class Paciente {
@@ -33,14 +35,10 @@ public class Paciente {
     @Column(name = "regiao", nullable = false)
     private String regiao;
 
-    @Column(name = "data_nascimento", nullable = false)
-    private Date data_nascimento;
-
-    public Paciente(Long id, String nome, String sobrenome, String regiao, Date data_nascimento) {
+    public Paciente(Long id, String nome, String sobrenome, String regiao, Date dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.regiao = regiao;
-        this.data_nascimento = data_nascimento;
     }
 }
