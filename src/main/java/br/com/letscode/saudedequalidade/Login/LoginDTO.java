@@ -1,0 +1,15 @@
+package br.com.letscode.saudedequalidade.Login;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class LoginDTO {
+    private String token;
+    private String authenticate;
+}
